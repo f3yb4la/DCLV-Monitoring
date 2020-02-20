@@ -11,12 +11,12 @@ import socket
 
 
 def main():
-	hostname = "192.168.178.99"
+	hostname = "192.168.178.99" # PUT THE LOCAL ADRESS OF THE HEATER HERE!
 	ftp_user = "refu"
 	ftp_password = "EE0129"
-	channel_id = 982813 # PUT YOUR ID HERE
-	write_key = 'KEAFAOM9W6HN2W2D' #PUT YOUR WRITE KEY HERE
-	read_key = 'EHWDQNNSHIYJJ10F' #PUT YOUR READ KEY HERE	
+	channel_id = 123456 # PUT YOUR ID HERE
+	write_key = 'MYWRITEKEY' #PUT YOUR WRITE KEY HERE
+	read_key = 'MYREADKEY' #PUT YOUR READ KEY HERE	
 	dataset_length = 10
 	additional_header_length = 18
 	amount_of_datasets = 18
