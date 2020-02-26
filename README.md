@@ -9,20 +9,32 @@ Steps to do:
 1. By the hardware components needed (see ko-fi page)
 2. Download Etcher to flash the SD card
     https://www.balena.io/etcher/
-3. download Raspbian Lite 
+3. Download Raspbian Lite 
     https://downloads.raspberrypi.org/raspbian_lite_latest
 4. Programm Raspbian Lite to SD card with Etcher
-5. Copy the (emtpy) ssh file from the repo to the new boot partition
-6. Create an Thingspeak account
-7. Download the heater.py from this repo
-8. Change the ip adress as well as the thingspeak keys in the heater.py file.
-9. Optional - change the data entries which are transfered to Thingspeak to your needs
-10. Install all needed packages
+5. Creating an (empty) ssh file on Windows via 
+```
+STRG+R
+cmd
+copy con ssh
+STRG+Z
+Enter
+```
+6. Copy the ssh file to boot partition of SD card
+7. Create an Thingspeak account
+    https://thingspeak.com/
+8. Download the heater.py from this repo
+9. Change the ip adress as well as the thingspeak keys in the heater.py file. You find it under your Thingsspeak channel - Settings
+10. Optional - change the data entries which are transfered to Thingspeak to your needs
+11. Install all needed packages
+```
     sudo apt-get install python-pip
     sudo pip install thingspeak
-11. Transfer the file to the Pi Zero
-12. Modifying the crontab for calling heater.py every 10 min
-    crontab -e
+```
+12. Transfer the file to the Pi Zero
+13. Modifying the crontab for calling heater.py every 10 min
+```   
+   crontab -e
     */10 * * * * python ~/Heater/heater.py
-
+```
 Now you should be able to view your logged data in Thingspeak.
