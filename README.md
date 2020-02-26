@@ -14,24 +14,31 @@ Steps to do:
 4. Programm Raspbian Lite to SD card with Etcher
 5. Creating an (empty) ssh file on Windows via 
 ```
-STRG+R
-cmd
-copy con ssh
-STRG+Z
-Enter
+    STRG+R
+    cmd
+    copy con ssh
+    STRG+Z
+    Enter
 ```
 6. Copy the ssh file to boot partition of SD card
 7. Create an Thingspeak account
     https://thingspeak.com/
 8. Download the heater.py from this repo
+```
+    cd ~
+    wget https://github.com/f3yb4la/DCLV-Monitoring/blob/master/heater.py
+```
 9. Change the ip adress as well as the thingspeak keys in the heater.py file. You find it under your Thingsspeak channel - Settings
+```
+    nano heater.py
+```
+    
 10. Optional - change the data entries which are transfered to Thingspeak to your needs
 11. Install all needed packages
 ```
     sudo apt-get install python-pip
     sudo pip install thingspeak
 ```
-12. Transfer the file to the Pi Zero
 13. Modifying the crontab for calling heater.py every 10 min
 ```   
    crontab -e
