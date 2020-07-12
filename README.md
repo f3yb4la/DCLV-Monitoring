@@ -12,15 +12,8 @@ Steps to do:
 3. Download Raspbian Lite 
     https://downloads.raspberrypi.org/raspbian_lite_latest
 4. Programm Raspbian Lite to SD card with Etcher
-5. Creating an (empty) ssh file on Windows via 
-```
-    STRG+R
-    cmd
-    copy con ssh
-    STRG+Z
-    Enter
-```
-6. Copy the ssh file to boot partition of SD card
+5. Edit the wpa_supplicant.conf and insert your WLAN credentials
+6. Copy the ssh file and the wpa_supplicant.confto boot partition of SD card
 7. Create an Thingspeak account
     https://thingspeak.com/
 8. Download the heater.py from this repo
@@ -35,13 +28,20 @@ Steps to do:
     
 10. Optional - change the data entries which are transfered to Thingspeak to your needs
 11. Install all needed packages
+``` 
+    sudo apt-get install python3
+
+    sudo apt-get install python3-pip
+
+    python3 -m pip install thingspeak
 ```
-    sudo apt-get install python-pip
-    sudo pip install thingspeak
-```
+13. Test the python script with
+---
+    python3 heater.py
+---
 13. Modifying the crontab for calling heater.py every 10 min
 ```   
    crontab -e
-    */10 * * * * python ~/Heater/heater.py
+    */10 * * * * python3 ~/Heater/heater.py
 ```
 Now you should be able to view your logged data in Thingspeak.
