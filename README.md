@@ -13,35 +13,41 @@ Steps to do:
     https://downloads.raspberrypi.org/raspbian_lite_latest
 4. Programm Raspbian Lite to SD card with Etcher
 5. Edit the wpa_supplicant.conf and insert your WLAN credentials
-6. Copy the ssh file and the wpa_supplicant.confto boot partition of SD card
+6. Copy the ssh file and the wpa_supplicant.conf to boot partition of SD card
 7. Create an Thingspeak account
     https://thingspeak.com/
-8. Download the heater.py from this repo
+8. Boot up your Pi and connect via Putty / SSH
+9. Login with "pi"/"raspberry"
+10 Download the heater.py from this repo
 ```
     cd ~
-    wget https://github.com/f3yb4la/DCLV-Monitoring/blob/master/heater.py
+    https://raw.githubusercontent.com/f3yb4la/DCLV-Monitoring/master/heater.py
 ```
-9. Change the ip adress as well as the thingspeak keys in the heater.py file. You find it under your Thingsspeak channel - Settings
+11. Change the ip adress as well as the thingspeak keys in the heater.py file. You find it under your Thingsspeak channel - Settings
 ```
     nano heater.py
 ```
+12. Save your settings with CTRL+X -- Y(es)
     
-10. Optional - change the data entries which are transfered to Thingspeak to your needs
-11. Install all needed packages
+13. Optional - change the data entries which are transfered to Thingspeak to your needs
+14. Install all needed packages
 ``` 
+    sudo apt-get update
+    
     sudo apt-get install python3
 
     sudo apt-get install python3-pip
 
-    python3 -m pip install thingspeak
+    sudo python3 -m pip install thingspeak
 ```
-13. Test the python script with
+15. Test the python script with
 ---
     python3 heater.py
 ---
-13. Modifying the crontab for calling heater.py every 10 min
+16. Modifying the crontab for calling heater.py every 10 min // selecting (1) for nano as editor
 ```   
    crontab -e
-    */10 * * * * python3 ~/Heater/heater.py
+   */10 * * * * python3 ~/Heater/heater.py
 ```
+17. Save with CTRL-x and Y(es) with enter.
 Now you should be able to view your logged data in Thingspeak.
