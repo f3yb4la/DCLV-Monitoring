@@ -47,7 +47,7 @@ Steps to do:
 16. Modifying the crontab for calling heater.py every 10 min // selecting (1) for nano as editor
 ```   
    crontab -e
-   */10 * * * * python3 ~/Heater/heater.py
+   */10 * * * * python3 ~/heater.py
 ```
 17. Save with CTRL-x and Y(es) with enter.
 Now you should be able to view your logged data in Thingspeak.
